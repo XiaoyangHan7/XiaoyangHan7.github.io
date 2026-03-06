@@ -6,15 +6,15 @@
     <title>Riley Han | PhD Candidate at HKU</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.4/css/academicons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #003d7c; /* HKU Blue */
-            --accent-color: #00d4ff; /* Bright Cyan */
-            --dark-bg: #1a1a2e; /* Dark Blue-Purple */
+            --accent-color: #00e6e6; /* Vibrant Cyan */
+            --dark-bg: #080808; /* Near Black */
             --light-text: #e0e0e0;
             --gray-text: #a0a0a0;
-            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-bg: rgba(255, 255, 255, 0.03);
             --border-color: rgba(255, 255, 255, 0.1);
             --transition-speed: 0.4s;
             --glass-effect: rgba(255, 255, 255, 0.08);
@@ -27,7 +27,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Roboto Mono', monospace;
             background-color: var(--dark-bg);
             color: var(--light-text);
             line-height: 1.7;
@@ -43,17 +43,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #1a1a2e, #0f3460, #16213e);
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s ease infinite;
+            background: radial-gradient(circle at 15% 50%, rgba(0, 230, 230, 0.1) 0%, transparent 25%),
+                        radial-gradient(circle at 85% 50%, rgba(0, 61, 124, 0.1) 0%, transparent 25%);
+            background-size: 200% 200%;
+            animation: backgroundPulse 20s ease infinite alternate;
             z-index: -1;
             opacity: 0.8;
         }
 
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes backgroundPulse {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
 
         /* Navigation */
@@ -64,11 +64,12 @@
             padding: 1rem 2rem;
             background: var(--glass-effect);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
             display: flex;
             justify-content: center;
             border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
         }
 
         nav ul {
@@ -81,7 +82,7 @@
             color: var(--light-text);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.08rem;
             text-transform: uppercase;
             transition: var(--transition-speed);
@@ -122,25 +123,26 @@
         }
 
         .hero-image-wrapper {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: 220px;
             margin: 0 auto 2rem;
             border-radius: 50%;
             overflow: hidden;
             border: 5px solid var(--accent-color);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-            transition: transform var(--transition-speed) ease-out;
+            box-shadow: 0 0 30px var(--accent-color);
+            transition: transform var(--transition-speed) ease-out, box-shadow var(--transition-speed) ease-out;
         }
 
         .hero-image-wrapper:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
+            box-shadow: 0 0 40px var(--accent-color);
         }
 
         .hero-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(100%);
+            filter: grayscale(80%);
             transition: filter var(--transition-speed) ease-out;
         }
 
@@ -149,8 +151,8 @@
         }
 
         .hero-content h1 {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 4.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
             line-height: 1.1;
             margin-bottom: 1rem;
             background: linear-gradient(45deg, var(--light-text), var(--accent-color));
@@ -160,15 +162,16 @@
         }
 
         .hero-content p {
-            font-size: 1.3rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.4rem;
             color: var(--gray-text);
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             animation: fadeIn 1.2s ease-out;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 3rem;
+            padding: 1rem 3.5rem;
             border: 2px solid var(--accent-color);
             color: var(--accent-color);
             text-decoration: none;
@@ -176,19 +179,21 @@
             border-radius: 50px;
             transition: var(--transition-speed);
             text-transform: uppercase;
-            letter-spacing: 0.05rem;
+            letter-spacing: 0.08rem;
             background: transparent;
+            box-shadow: 0 0 15px rgba(0, 230, 230, 0.3);
         }
 
         .btn:hover {
             background: var(--accent-color);
             color: var(--dark-bg);
-            box-shadow: 0 0 25px var(--accent-color);
+            box-shadow: 0 0 30px var(--accent-color);
+            transform: translateY(-3px);
         }
 
         /* Section Styling */
         section {
-            padding: 6rem 5%;
+            padding: 8rem 5%;
             max-width: 1000px;
             margin: 0 auto;
             opacity: 0;
@@ -202,12 +207,14 @@
         }
 
         .section-title {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 4rem;
             text-align: center;
             position: relative;
             color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
         }
 
         .section-title::after {
@@ -216,8 +223,8 @@
             bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 100px;
+            height: 4px;
             background: var(--accent-color);
             border-radius: 5px;
         }
@@ -225,32 +232,32 @@
         /* Cards & Lists */
         .card {
             background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 1rem;
+            padding: 3rem;
+            border-radius: 1.5rem;
             border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             transition: var(--transition-speed);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.5);
         }
 
         .card h3 {
             color: var(--accent-color);
-            margin-bottom: 0.7rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
         }
 
         .card .meta {
             font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--gray-text);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             display: block;
         }
 
@@ -260,24 +267,26 @@
 
         /* Publications */
         .pub-item {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--primary-color);
+            margin-bottom: 2.5rem;
+            padding-left: 2rem;
+            border-left: 4px solid var(--primary-color);
             position: relative;
         }
 
         .pub-item::before {
             content: '•';
             position: absolute;
-            left: -10px;
+            left: -12px;
             color: var(--accent-color);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             line-height: 1;
+            top: -5px;
         }
 
         .pub-item p {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Roboto Mono', monospace;
             color: var(--light-text);
+            font-size: 1.05rem;
         }
 
         .pub-item em {
@@ -287,44 +296,44 @@
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
 
         .skill-cat {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 1rem;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
         }
 
         .skill-cat h4 {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             color: var(--accent-color);
             text-transform: uppercase;
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 0.1rem;
             border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.8rem;
         }
 
         .skill-list {
             list-style: none;
             color: var(--gray-text);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .skill-list li {
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
         }
 
         .skill-list li::before {
-            content: '✓';
+            content: '>';
             position: absolute;
             left: 0;
             color: var(--primary-color);
@@ -333,41 +342,41 @@
 
         /* Footer */
         footer {
-            padding: 4rem 5%;
+            padding: 5rem 5%;
             text-align: center;
             border-top: 1px solid var(--border-color);
             color: var(--gray-text);
-            font-size: 0.85rem;
-            background: rgba(0, 0, 0, 0.3);
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .social-links {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         .social-links a {
             color: var(--light-text);
-            font-size: 1.8rem;
+            font-size: 2rem;
             transition: var(--transition-speed);
         }
 
         .social-links a:hover {
             color: var(--accent-color);
-            transform: translateY(-5px);
+            transform: translateY(-7px) scale(1.1);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3rem; }
-            .hero-content p { font-size: 1rem; }
-            .hero-image-wrapper { width: 150px; height: 150px; }
+            .hero-content h1 { font-size: 3.5rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .hero-image-wrapper { width: 180px; height: 180px; }
             nav ul { gap: 1.5rem; }
             nav a { font-size: 0.8rem; }
-            .section-title { font-size: 2rem; }
-            section { padding: 4rem 5%; }
+            .section-title { font-size: 2.2rem; }
+            section { padding: 6rem 5%; }
             .skills-grid { grid-template-columns: 1fr; }
         }
 
@@ -385,6 +394,7 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#research">Research</a></li>
             <li><a href="#publications">Publications</a></li>
+            <li><a href="#awards">Awards</a></li>
             <li><a href="#skills">Expertise</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -397,14 +407,19 @@
             </div>
             <h1>Riley Han</h1>
             <p>PhD Candidate in Molecular Biology and Biochemistry at The University of Hong Kong.</p>
-            <a href="#contact" class="btn">Get in Touch</a>
+            <a href="#contact" class="btn">Connect with Riley</a>
         </div>
     </div>
 
     <section id="about">
         <h2 class="section-title">About Riley</h2>
         <div class="card">
-            <p>Riley Han is a dedicated and innovative researcher currently pursuing his Ph.D. in Molecular Biology and Biochemistry at the School of Biological Sciences, The University of Hong Kong. His academic journey includes an M.Sc. from Imperial College London and a B.Sc. from Soochow University, where he consistently demonstrated exceptional academic performance. Riley's research interests lie at the intersection of <strong>molecular biology</strong>, <strong>CRISPR-based genome editing</strong>, and <strong>computational biology</strong>. He is driven by a passion for dissecting complex biological regulatory networks and developing novel approaches to address critical scientific challenges.</p>
+            <p>Riley Han is a highly motivated and innovative researcher currently pursuing his Ph.D. in Molecular Biology and Biochemistry at the prestigious School of Biological Sciences, The University of Hong Kong. His academic journey is marked by excellence, including an M.Sc. from Imperial College London and a B.Sc. from Soochow University, where he achieved top academic honors. Riley's research interests converge at the forefront of <strong>molecular biology</strong>, advanced <strong>CRISPR-based genome editing technologies</strong>, and sophisticated <strong>computational biology approaches</strong>. He is passionately dedicated to unraveling complex biological regulatory networks and pioneering novel solutions to pressing scientific challenges in the life sciences.</p>
+        </div>
+        <div class="card" style="text-align: center; margin-top: 3rem;">
+            <h3>Explore Riley's Profile on Baidu Baike</h3>
+            <p>Discover more about Riley Han's background and contributions.</p>
+            <a href="https://baike.baidu.com/item/%E9%9F%A9%E6%99%93%E9%98%B3/64659205?fr=aladdin" target="_blank" class="btn" style="margin-top: 1.5rem;">View Baidu Baike</a>
         </div>
     </section>
 
@@ -431,18 +446,18 @@
         <h2 class="section-title">Research Experience</h2>
         <div class="card">
             <h3>CRISPR-Cas System Physiology in <em>Pseudomonas aeruginosa</em></h3>
-            <span class="meta">Principal Investigator | 2023 - 2027</span>
-            <p>Riley is leading the investigation into the physiological regulatory functions of the CRISPR-Cas system in <em>Pseudomonas aeruginosa</em>. His work involves leveraging CRISPR-based genome editing and molecular cloning techniques, developing Python algorithms for gene candidate identification from high-throughput screens, and performing RNA-seq analysis to uncover epigenetic and transcriptional regulatory networks.</p>
+            <span class="meta">Principal Investigator | The University of Hong Kong | 2023 - 2027</span>
+            <p>Riley is leading an in-depth investigation into the physiological regulatory functions of the CRISPR-Cas system within <em>Pseudomonas aeruginosa</em>. His methodology integrates cutting-edge CRISPR-based genome editing and molecular cloning techniques. He has developed sophisticated Python algorithms to identify potential CRISPR-regulated gene candidates from high-throughput screens, with subsequent validation through comprehensive RNA-seq analysis. This research aims to mechanistically dissect transcription factor-DNA interactions at target loci, thereby elucidating the intricate epigenetic and transcriptional regulatory networks governing CRISPR functionality.</p>
         </div>
         <div class="card">
             <h3>Development of 2A Peptide-based Gene Tagging in Trypanosomes</h3>
-            <span class="meta">Master's Graduation Project | 2021 - 2023</span>
-            <p>During his Master's project, Riley successfully established a CRISPR-Cas9 system and a novel trypanosome cell line. He demonstrated the activity of T2A peptides in <em>African Trypanosoma brucei</em>, which is crucial for studying gene regulation, including iron homeostasis. This comprehensive project involved primer design, PCR, transfection, flow cytometry, WB, qPCR, and advanced data processing.</p>
+            <span class="meta">Master's Graduation Project | Imperial College London | 2021 - 2023</span>
+            <p>During his Master's research, Riley successfully established a robust CRISPR-Cas9 system and developed a novel trypanosome cell line. His pioneering work demonstrated the effective activity of T2A peptides in <em>African Trypanosoma brucei</em>, a critical advancement for studying gene regulation, particularly iron homeostasis. This comprehensive project encompassed all stages from sgRNA and repair template primer design, PCR, transfection, flow cytometry, Western Blotting, qPCR, to advanced experimental data processing and image creation using specialized software.</p>
         </div>
         <div class="card">
             <h3>Anti-infection Mechanisms of Epigallocatechin Gallate (EGCG)</h3>
-            <span class="meta">Undergraduate Honor Project | 2019 - 2021</span>
-            <p>As part of his undergraduate research, Riley extensively studied the anti-infective effects of tea polyphenols (EGCG) through various cell and in vivo experiments. His contributions led to a national patent and co-authorship on multiple scientific publications, including a co-first author SCI paper and a first-author Chinese SCI review.</p>
+            <span class="meta">Undergraduate Honor Project | Soochow University | 2019 - 2021</span>
+            <p>As a key contributor to his undergraduate honor project, Riley conducted extensive research on the anti-infective properties of tea polyphenols (EGCG). His work involved a wide array of cell and in vivo experiments, including cell culture, mouse models, and various biochemical assays (WB, ELISA, qPCR). This significant research culminated in the successful application for a national patent (as the second inventor) and co-authorship on multiple scientific publications, including a co-first author SCI paper and a first-author Chinese SCI review.</p>
         </div>
     </section>
 
@@ -465,6 +480,26 @@
         </div>
     </section>
 
+    <section id="awards">
+        <h2 class="section-title">Awards & Honors</h2>
+        <div class="card">
+            <ul>
+                <li>Third Prize in the innovation group of the 6th National College Student Life Science Innovation and Entrepreneurship Competition (June 2021)</li>
+                <li>Entitled "Outstanding Graduate," Soochow University (June 2021)</li>
+                <li>Entitled "Outstanding Graduation Design for Undergraduates," Soochow University (June 2021)</li>
+                <li>First Prize for academic excellence (top 1%), Soochow University (2020-2021)</li>
+                <li>Third Prize in the 5th Biological Science Competition CULSC Jiangsu Division (July 2020)</li>
+                <li>Entitled "Innovation and Entrepreneurship" Award (2019-2020)</li>
+                <li>"Gao Shangyin" Scholarship of Wuhan Institute of Virology, Chinese Academy of Science (2019-2020)</li>
+                <li>First Prize for academic excellence (top 1%), Soochow University (2019-2020)</li>
+                <li>Third prize of Biological Skills Experiment Competition (October 2019)</li>
+                <li>First Prize for academic excellence (top 1%), Soochow University (2018-2019)</li>
+                <li>Suzhou Industrial Park "Biobay" Special Class Scholarship (December 2018)</li>
+                <li>Entitled "Outstanding student" (2 out of 80), Soochow University (August 2018)</li>
+            </ul>
+        </div>
+    </section>
+
     <section id="skills">
         <h2 class="section-title">Expertise & Skills</h2>
         <div class="skills-grid">
@@ -477,6 +512,8 @@
                     <li>Flow Cytometry (FACS)</li>
                     <li>In Vivo Mouse Models</li>
                     <li>Molecular Cloning</li>
+                    <li>Freeze-drying Technology</li>
+                    <li>SDS-PAGE & Affinity Chromatography</li>
                 </ul>
             </div>
             <div class="skill-cat">
@@ -487,16 +524,16 @@
                     <li>SnapGene & ImageJ</li>
                     <li>GraphPad Prism & Origin</li>
                     <li>Adobe Illustrator & Photoshop</li>
+                    <li>Endnote X9, CAJ</li>
                 </ul>
             </div>
             <div class="skill-cat">
-                <h4>Awards & Honors</h4>
+                <h4>Language & Others</h4>
                 <ul class="skill-list">
-                    <li>Outstanding Graduate, Soochow University</li>
-                    <li>Biobay Special Class Scholarship</li>
-                    <li>Gao Shangyin Scholarship (CAS)</li>
-                    <li>First Prize for Academic Excellence (Top 1%)</li>
-                    <li>National College Student Life Science Innovation Competition (Third Prize)</li>
+                    <li>Chinese (Native)</li>
+                    <li>English (Proficient)</li>
+                    <li>Basketball</li>
+                    <li>Painting</li>
                 </ul>
             </div>
         </div>
@@ -507,16 +544,14 @@
         <div class="card" style="text-align: center;">
             <p>Riley is always open to discussing new research ideas, collaborations, or academic opportunities. Feel free to reach out via email:</p><br>
             <a href="mailto:xh221@ic.ac.uk" class="btn">xh221@ic.ac.uk</a>
-            <div class="social-links" style="margin-top: 2rem;">
+            <div class="social-links" style="margin-top: 2.5rem;">
                 <a href="mailto:xh221@ic.ac.uk" title="Email"><i class="fas fa-envelope"></i></a>
-                <!-- Replace # with your actual Google Scholar profile link -->
-                <a href="#" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
-                <!-- Replace # with your actual GitHub profile link -->
-                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <!-- Replace # with your actual LinkedIn profile link -->
-                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/xiaoyang-h-936381315/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <!-- Add your Google Scholar or GitHub link here if available -->
+                <!-- <a href="#" target="_blank" title="Google Scholar"><i class="ai ai-google-scholar"></i></a> -->
+                <!-- <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a> -->
             </div>
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--gray-text);">Address: School of Biological Sciences, The University of Hong Kong, Pok Fu Lam Road, Hong Kong</p>
+            <p style="margin-top: 2rem; font-size: 0.95rem; color: var(--gray-text);">Address: School of Biological Sciences, The University of Hong Kong, Pok Fu Lam Road, Hong Kong</p>
         </div>
     </section>
 
